@@ -22,7 +22,7 @@ module.exports = {
             })
         Model.getResponden(payload)
             .then(result => {
-                result = { result, ...pagination };
+                result = { data: result, ...pagination };
                 Response.success(res, result);
             })
             .catch(err => {
