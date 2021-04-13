@@ -1,0 +1,1 @@
+exports.INVALID_CREDENTIAL = "Username atau Password Salah";

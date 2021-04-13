@@ -4,7 +4,6 @@ const { v4: uuidv4 } = require('uuid');
 
 module.exports = {
     getResponden: (req, res, next) => {
-        console.log(req.query.page);
         const limit = req.query.limit ? parseInt(req.query.limit) : 0;
         const page = req.query.page ? parseInt(req.query.page) - 1 : 0;
         const payload = [limit, page >= 0 ? page : 0];
