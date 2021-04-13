@@ -30,5 +30,14 @@ module.exports = {
                 else reject(err);
             });
         });
+    },
+    getId: payload => {
+        let sql = `SELECT * FROM responden WHERE secureId LIKE "%${payload}%"`;
+        return new Promise((resolve, reject) => {
+            Database.query(sql, (err, response) => {
+                if (!err) resolve(response);
+                else reject(err);
+            });
+        });
     }
 }

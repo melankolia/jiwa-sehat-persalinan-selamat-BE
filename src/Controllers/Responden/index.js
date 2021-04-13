@@ -40,4 +40,16 @@ module.exports = {
                 Response.failed(res, err, next);
             })
     },
+    getIdResponden: (req, res, next) => {
+        return new Promise((resolve, reject) => {
+            const payload = req.body.secureId;
+            Model.getId(payload)
+                .then(result => {
+                    resolve(result)
+                })
+                .catch(err => {
+                    Response.failed(res, err, next);
+                })
+        })
+    }
 };

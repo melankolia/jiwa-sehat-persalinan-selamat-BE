@@ -1,0 +1,12 @@
+POST http://localhost:9000/screening
+content-type: application/json
+
+{
+    "secureId": "20f3e605-0eda-4ffe-ad6c-bfd10324159a",
+    "question1": "SAYA SEHAT",
+    "question2": "SAYA BAIK BAIK SAJA"
+}
+
+###
+
+GET http://localhost:9000/responden
