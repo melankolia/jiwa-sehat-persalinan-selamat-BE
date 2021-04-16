@@ -18,8 +18,8 @@ module.exports = {
                 })
 
             await Model.create(payload)
-                .then(result => {
-                    Response.success(res, result);
+                .then(_ => {
+                    Response.success(res, true);
                 })
                 .catch(err => {
                     Response.failed(res, err, next)

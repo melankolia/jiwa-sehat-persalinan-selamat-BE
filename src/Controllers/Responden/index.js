@@ -7,7 +7,7 @@ module.exports = {
         const limit = req.query.limit ? parseInt(req.query.limit) : 0;
         const page = req.query.page ? parseInt(req.query.page) - 1 : 0;
         const search = req.query.search ? req.query.search : "";
-        const payload = [limit, page >= 0 ? page : 0, search];
+        const payload = [limit, page >= 0 ? (page * limit) : 0, search];
         const pagination = {
             elements: 0
         }
