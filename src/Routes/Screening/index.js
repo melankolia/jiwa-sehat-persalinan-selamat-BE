@@ -3,6 +3,6 @@ const Router = express.Router();
 
 const Controller = require("../../Controllers/Screening");
 
-Router.post("/", Controller.createScreening);
+Router.post("/:secureId", Controller.createScreening);
 
 module.exports = Router;

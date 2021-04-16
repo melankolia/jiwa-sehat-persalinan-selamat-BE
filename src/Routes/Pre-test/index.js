@@ -3,6 +3,6 @@ const Router = express.Router();
 
 const Controller = require("../../Controllers/Pre-test");
 
-Router.post("/", Controller.createPretest);
+Router.post("/:secureId", Controller.createPretest);
 
 module.exports = Router;

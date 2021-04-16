@@ -45,6 +45,17 @@ module.exports = {
             });
         });
     },
+    updateResponden: payload => {
+        let sql = `UPDATE responden SET pretest = ? WHERE id_responden = ?`;
+        return new Promise((resolve, reject) => {
+            Database.query(sql, [...payload], (err, response) => {
+                console.log(response)
+                console.log(err)
+                if (!err) resolve(response);
+                else reject(err);
+            });
+        });
+    },
     getId: payload => {
         let sql = `SELECT * FROM responden WHERE secureId LIKE "%${payload}%"`;
         return new Promise((resolve, reject) => {
