@@ -45,8 +45,8 @@ module.exports = {
             });
         });
     },
-    updateResponden: payload => {
-        let sql = `UPDATE responden SET pretest = ? WHERE id_responden = ?`;
+    updateResponden: (payload, type) => {
+        let sql = `UPDATE responden SET ${type} = ? WHERE id_responden = ?`;
         return new Promise((resolve, reject) => {
             Database.query(sql, [...payload], (err, response) => {
                 console.log(response)

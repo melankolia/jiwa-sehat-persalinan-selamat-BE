@@ -7,6 +7,8 @@ module.exports = {
     createPosttest: async (req, res, next) => {
         const payload = { ...req.body };
         try {
+            const posttest = Object.values(payload).reduce((t, e) => t + e);
+
             await Responden.getIdResponden(req, res, next)
                 .then(result => {
                     result.length <= 0 && Response.failed(res, err, next);
@@ -17,9 +19,14 @@ module.exports = {
                     Response.failed(res, err, next);
                 })
 
+            await Responden.updateResponden([posttest, payload.id_responden], res, next, "posttest")
+            .catch(err => {
+                Response.failed(res, err, next);
+            })
+
             await Model.create(payload)
-                .then(result => {
-                    Response.success(res, result);
+                .then(_ => {
+                    Response.success(res, true);
                 })
                 .catch(err => {
                     Response.failed(res, err, next)

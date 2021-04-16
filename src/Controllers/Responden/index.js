@@ -53,9 +53,9 @@ module.exports = {
                 })
         })
     },
-    updateResponden: (payload, res, next) => {
+    updateResponden: (payload, res, next, type = "pretest") => {
         return new Promise((resolve, reject) => {
-            Model.updateResponden(payload)
+            Model.updateResponden(payload, type)
                 .then(result => {
                     resolve(result)
                 })
