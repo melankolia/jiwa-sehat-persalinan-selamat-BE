@@ -6,11 +6,12 @@ module.exports = {
     getResponden: (req, res, next) => {
         const limit = req.query.limit ? parseInt(req.query.limit) : 0;
         const page = req.query.page ? parseInt(req.query.page) - 1 : 0;
-        const payload = [limit, page >= 0 ? page : 0];
+        const search = req.query.search ? req.query.search : "";
+        const payload = [limit, page >= 0 ? page : 0, search];
         const pagination = {
             elements: 0
         }
-        Model.countResponden()
+        Model.countResponden(payload)
             .then(result => {
                 if (parseInt(req.query.limit)) {
                     pagination.pages = Math.ceil(result[0].elements / req.query.limit);

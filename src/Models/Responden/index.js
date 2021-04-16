@@ -2,9 +2,16 @@ const Database = require("../../Utils/Configs/db");
 
 module.exports = {
     getResponden: (payload) => {
-        let sql = "SELECT * FROM responden";
+        let sql = `SELECT * FROM responden 
+                    WHERE   initialName LIKE '%${payload[2]}%' OR 
+                            age LIKE '%${payload[2]}%' OR 
+                            gestationalAge LIKE '%${payload[2]}%' OR 
+                            education LIKE '%${payload[2]}%' OR 
+                            salaryRange LIKE '%${payload[2]}%' OR
+                            pretest LIKE '%${payload[2]}%' OR 
+                            posttest LIKE '%${payload[2]}%'`;
         if (payload[0] && (payload[1] >= 0)) {
-            sql = `SELECT * FROM responden LIMIT ? OFFSET ?`;
+            sql += " LIMIT ? OFFSET ?";
         }
         return new Promise((resolve, reject) => {
             Database.query(sql, payload, (err, response) => {
@@ -13,8 +20,15 @@ module.exports = {
             });
         });
     },
-    countResponden: _ => {
-        let sql = `Select count(*) as elements from responden`;
+    countResponden: payload => {
+        let sql = `Select count(*) as elements from responden
+                    WHERE   initialName LIKE '%${payload[2]}%' OR 
+                    age LIKE '%${payload[2]}%' OR 
+                    gestationalAge LIKE '%${payload[2]}%' OR 
+                    education LIKE '%${payload[2]}%' OR 
+                    salaryRange LIKE '%${payload[2]}%' OR
+                    pretest LIKE '%${payload[2]}%' OR 
+                    posttest LIKE '%${payload[2]}%'`;
         return new Promise((resolve, reject) => {
             Database.query(sql, (err, response) => {
                 if (!err) resolve(response);
