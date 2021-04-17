@@ -10,9 +10,10 @@ module.exports = {
                             salaryRange LIKE '%${payload[2]}%' OR
                             pretest LIKE '%${payload[2]}%' OR 
                             posttest LIKE '%${payload[2]}%'`;
-        if (payload[0] && (payload[1] >= 0)) {
-            sql += " LIMIT ? OFFSET ?";
-        }
+
+        (payload[3] && payload[4]) && (sql += ` ORDER BY ${payload[3]} ${payload[4]}`); 
+        (payload[0] && (payload[1] >= 0)) && (sql += " LIMIT ? OFFSET ?");
+            
         return new Promise((resolve, reject) => {
             Database.query(sql, payload, (err, response) => {
                 if (!err) resolve(response);

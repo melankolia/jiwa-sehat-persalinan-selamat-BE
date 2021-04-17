@@ -10,7 +10,9 @@ module.exports = {
         const limit = req.query.limit ? parseInt(req.query.limit) : 0;
         const page = req.query.page ? parseInt(req.query.page) - 1 : 0;
         const search = req.query.search ? req.query.search : "";
-        const payload = [limit, page >= 0 ? (page * limit) : 0, search];
+        const sortBy = req.query.sortBy ? req.query.sortBy : "";
+        const sortDesc = req.query.sortDesc ? req.query.sortDesc : ""
+        const payload = [limit, page >= 0 ? (page * limit) : 0, search ,sortBy, sortDesc];
         const pagination = {
             elements: 0
         }
@@ -98,17 +100,17 @@ module.exports = {
                 if (e[0].includes("pretest")) {
                     result.pretestList = [...result.pretestList, { 
                         question: QUESTION_SURVEY[splitter(e)],
-                        answer: e[1] ? String(e[1]) : "0" 
+                        answer: e[1] >= 0 && e[1] != null ? String(e[1]) : null
                     }]
                 } else if (e[0].includes("posttest")) {
                     result.postTestList = [...result.postTestList, { 
                         question: QUESTION_SURVEY[splitter(e)],
-                        answer: e[1] ? String(e[1]) : "0" 
+                        answer: e[1] >= 0 && e[1] != null ? String(e[1]) : null
                     }]
                 } else if (e[0].includes("screening")) {
                     result.screeningList = [...result.screeningList, { 
                         question: SCREENING_SURVEY[splitter(e)],
-                        answer: e[1] ? String(e[1]) : null 
+                        answer: e[1] >= 0 && e[1] != null ? String(e[1]) : null 
                     }]
                 }
             });
