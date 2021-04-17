@@ -7,11 +7,13 @@ const Users = require("./User");
 const Screening = require("./Screening");
 const Pretest = require("./Pre-test");
 const Posttest = require("./Post-test");
+const Exports = require("./Exports");
 
 Router.use("/responden", Responden);
 Router.use("/login", Users);
 Router.use("/screening", Screening);
 Router.use("/pretest", Pretest);
 Router.use("/posttest", Posttest);
+Router.use("/export", Exports);
 
 module.exports = Router;

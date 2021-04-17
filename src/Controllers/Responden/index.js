@@ -6,6 +6,17 @@ const { DATA_NOT_FOUND, QUESTION_SURVEY, SCREENING_SURVEY } = require("../../Uti
 
 
 module.exports = {
+    getAllResponden: (req, res, next) => {
+        return new Promise((resolve, reject) => {
+            Model.getAllResponden()
+                .then(result => {
+                    resolve(result)
+                })
+                .catch(err => {
+                    Response.failed(res, err, next);
+                })
+        })
+    }, 
     getResponden: async (req, res, next) => {
         const limit = req.query.limit ? parseInt(req.query.limit) : 0;
         const page = req.query.page ? parseInt(req.query.page) - 1 : 0;

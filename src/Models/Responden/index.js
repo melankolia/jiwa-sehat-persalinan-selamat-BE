@@ -1,6 +1,22 @@
 const Database = require("../../Utils/Configs/db");
 
 module.exports = {
+    getAllResponden: () => {
+        let sql = `SELECT 	initialName,
+                            age,
+                            gestationalAge,
+                            education, 
+                            salaryRange,
+                            posttest,
+                            pretest
+                    FROM responden`;
+        return new Promise((resolve, reject) => {
+            Database.query(sql, (err, response) => {
+                if (!err) resolve(response);
+                else reject(err);
+            });
+        })
+    },
     getResponden: (payload) => {
         let sql = `SELECT * FROM responden 
                     WHERE   initialName LIKE '%${payload[2]}%' OR 

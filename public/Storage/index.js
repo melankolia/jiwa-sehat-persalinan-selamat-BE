@@ -1,0 +1,1 @@
+exports.DIRNAME_STORAGE = __dirname;
