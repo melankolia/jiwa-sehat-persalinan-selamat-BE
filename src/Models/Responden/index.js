@@ -119,5 +119,14 @@ module.exports = {
                 else reject(err);
             });
         });
-    }
+    },
+    deleteResponden: payload => {
+        let sql = `DELETE FROM responden WHERE secureId = ?`;
+        return new Promise((resolve, reject) => {
+            Database.query(sql, [payload], (err, response) => {
+                if (!err) resolve(response);
+                else reject(err);
+            });
+        });
+    },
 }

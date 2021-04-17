@@ -119,5 +119,17 @@ module.exports = {
         } catch (err) {
             Response.failed(res, err, next);
         }
+    },
+    deleteResponden: (req, res, next) => {
+        const payload =  [ req.params.secureId ? req.params.secureId : null ];
+
+        !payload[0] && Response.failed(res, DATA_NOT_FOUND, next);
+        Model.deleteResponden(payload)
+            .then(_ => {
+                Response.success(res, true);
+            }) 
+            .catch(err => {
+                Response.failed(res, err, next);
+            })
     }
 };
