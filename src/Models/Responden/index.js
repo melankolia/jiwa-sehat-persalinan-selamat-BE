@@ -64,5 +64,59 @@ module.exports = {
                 else reject(err);
             });
         });
+    },
+    getDetail: payload => {
+        let sql = `SELECT	responden.id_responden, 
+                            responden.secureId,
+                            initialName,
+                            agreement,
+                            age,
+                            gestationalAge,
+                            education,
+                            salaryRange,
+                            posttest, 
+                            pretest,
+                            pretest.question1 AS pretest_question1,
+                            pretest.question2 AS pretest_question2,
+                            pretest.question3 AS pretest_question3,
+                            pretest.question4 AS pretest_question4,
+                            pretest.question5 AS pretest_question5,
+                            pretest.question6 AS pretest_question6,
+                            pretest.question7 AS pretest_question7,
+                            pretest.question8 AS pretest_question8,
+                            pretest.question9 AS pretest_question9,
+                            pretest.question10 AS pretest_question10,
+                            pretest.question11 AS pretest_question11,
+                            pretest.question12 AS pretest_question12,
+                            pretest.question13 AS pretest_question13,
+                            pretest.question14 AS pretest_question14,
+                            screening.question1 AS screening_question1,
+                            screening.question2 AS screening_question2,
+                            posttest.question1 AS posttest_question1,
+                            posttest.question2 AS posttest_question2,
+                            posttest.question3 AS posttest_question3,
+                            posttest.question4 AS posttest_question4,
+                            posttest.question5 AS posttest_question5,
+                            posttest.question6 AS posttest_question6,
+                            posttest.question7 AS posttest_question7,
+                            posttest.question8 AS posttest_question8,
+                            posttest.question9 AS posttest_question9,
+                            posttest.question10 AS posttest_question10,
+                            posttest.question11 AS posttest_question11,
+                            posttest.question12 AS posttest_question12,
+                            posttest.question13 AS posttest_question13,
+                            posttest.question14 AS posttest_question14
+                    FROM responden
+                    LEFT JOIN pretest on responden.id_responden = pretest.id_responden 
+                    LEFT JOIN screening on responden.id_responden = screening.id_responden 
+                    LEFT JOIN posttest on responden.id_responden = posttest.id_responden
+                    WHERE responden.secureId='${payload}'`;
+
+        return new Promise((resolve, reject) => {
+            Database.query(sql, (err, response) => {
+                if (!err) resolve(response);
+                else reject(err);
+            });
+        });
     }
 }
