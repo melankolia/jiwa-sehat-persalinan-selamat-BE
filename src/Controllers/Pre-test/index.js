@@ -8,7 +8,7 @@ module.exports = {
     createPretest: async (req, res, next) => {
         const payload = { ...req.body };
         try {
-            const pretest = Object.values(payload).reduce((t, e) => t + e);
+            const pretest = Object.values(payload).reduce((t, e) => Number(t) + Number(e));
 
             await Responden.getIdResponden(req, res, next)
                 .then(result => {

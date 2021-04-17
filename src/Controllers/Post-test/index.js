@@ -7,7 +7,7 @@ module.exports = {
     createPosttest: async (req, res, next) => {
         const payload = { ...req.body };
         try {
-            const posttest = Object.values(payload).reduce((t, e) => t + e);
+            const posttest = Object.values(payload).reduce((t, e) => Number(t) + Number(e));
 
             await Responden.getIdResponden(req, res, next)
                 .then(result => {
