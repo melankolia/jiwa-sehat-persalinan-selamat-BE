@@ -110,7 +110,7 @@ module.exports = {
                 } else if (e[0].includes("screening")) {
                     result.screeningList = [...result.screeningList, { 
                         question: SCREENING_SURVEY[splitter(e)],
-                        answer: e[1] >= 0 && e[1] != null ? String(e[1]) : null 
+                        answer: e[1] ? String(e[1]) : null 
                     }]
                 }
             });
