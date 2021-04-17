@@ -1,7 +1,8 @@
 const Model = require("../../Models/Responden");
 const Response = require("../../Utils/Helper/Responses");
+const { splitter } = require("../../Utils/Helper/Etc");
 const { v4: uuidv4 } = require('uuid');
-const { DATA_NOT_FOUND } = require("../../Utils/Constants");
+const { DATA_NOT_FOUND, QUESTION_SURVEY, SCREENING_SURVEY } = require("../../Utils/Constants");
 
 
 module.exports = {
@@ -73,6 +74,8 @@ module.exports = {
             const [Tempresult] = await Model.getDetail(payload)
             !Tempresult && Response.failed(res, DATA_NOT_FOUND, next);
 
+            console.log(Tempresult);
+
             const { id_responden, secureId, 
                     initialName, agreement, 
                     age, gestationalAge, 
@@ -87,22 +90,30 @@ module.exports = {
                 education, salaryRange, 
                 pretest, posttest,  
                 pretestList: [],
-                posttestList: [],
+                postTestList: [],
                 screeningList: []
             }
             
-            Object.entries(etc).forEach(e => {
+            Object.entries(etc).forEach((e, i) => {
                 if (e[0].includes("pretest")) {
-                    result.pretestList = [...result.pretestList, { answer: e[1] ? e[1] : 0 }]
+                    result.pretestList = [...result.pretestList, { 
+                        question: QUESTION_SURVEY[splitter(e)],
+                        answer: e[1] ? String(e[1]) : "0" 
+                    }]
                 } else if (e[0].includes("posttest")) {
-                    result.posttestList = [...result.posttestList, { answer: e[1] ? e[1] : 0 }]
+                    result.postTestList = [...result.postTestList, { 
+                        question: QUESTION_SURVEY[splitter(e)],
+                        answer: e[1] ? String(e[1]) : "0" 
+                    }]
                 } else if (e[0].includes("screening")) {
-                    result.screeningList = [...result.screeningList, { answer: e[1] }]
+                    result.screeningList = [...result.screeningList, { 
+                        question: SCREENING_SURVEY[splitter(e)],
+                        answer: e[1] ? String(e[1]) : null 
+                    }]
                 }
             });
 
             Response.success(res, result);
-
         } catch (err) {
             Response.failed(res, err, next);
         }
