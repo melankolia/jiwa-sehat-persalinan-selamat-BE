@@ -30,6 +30,8 @@ module.exports = {
     
             SCREENING_QUESTION.forEach(e => {
                 worksheet.getCell(e[0]).value = e[1]
+                worksheet.getCell(e[0]).font = {bold: true}
+                worksheet.getCell(e[0]).alignment = { vertical: 'middle', horizontal: 'center' };
             })
             worksheet.getCell("J1").value = "Pretest";
             worksheet.getCell("J1").font = {bold: true};
@@ -38,6 +40,8 @@ module.exports = {
     
             PRETEST_QUESTION.forEach(e => {
                 worksheet.getCell(e[0]).value = e[1]
+                worksheet.getCell(e[0]).font = {bold: true}
+                worksheet.getCell(e[0]).alignment = { vertical: 'middle', horizontal: 'center' };
             })
     
             worksheet.getCell("X1").value = "Posttest";
@@ -47,6 +51,8 @@ module.exports = {
     
             POSTTEST_QUESTION.forEach(e => {
                 worksheet.getCell(e[0]).value = e[1]
+                worksheet.getCell(e[0]).font = {bold: true}
+                worksheet.getCell(e[0]).alignment = { vertical: 'middle', horizontal: 'center' };
             })
 
             // Assign Data
