@@ -22,3 +22,54 @@ exports.SCREENING_SURVEY = [
     "Apa saja keluhan yang Ibu rasakan selama hamil ?",
     "Perubahan-perubahan apa saja yang terjadi pada fisik Ibu selama hamil ?"
 ]
+
+exports.SCREENING_QUESTION = [
+    ["H2", "Question 1"],
+    ["I2", "Question 2"]
+]
+
+exports.PRETEST_QUESTION = [
+    ["J2", "Question 1"],
+    ["K2", "Question 2"],
+    ["L2", "Question 3"],
+    ["M2", "Question 4"],
+    ["N2", "Question 5"],
+    ["O2", "Question 6"],
+    ["P2", "Question 7"],
+    ["Q2", "Question 8"],
+    ["R2", "Question 9"],
+    ["S2", "Question 10"],
+    ["T2", "Question 11"],
+    ["U2", "Question 12"],
+    ["V2", "Question 13"],
+    ["W2","Question 14"],
+]
+
+exports.POSTTEST_QUESTION = [
+    ["X2", "Question 1"],
+    ["Y2", "Question 2"],
+    ["Z2", "Question 3"],
+    ["AA2", "Question 4"],
+    ["AB2", "Question 5"],
+    ["AC2", "Question 6"],
+    ["AD2", "Question 7"],
+    ["AE2", "Question 8"],
+    ["AF2", "Question 9"],
+    ["AG2", "Question 10"],
+    ["AH2", "Question 11"],
+    ["AI2", "Question 12"],
+    ["AJ2", "Question 13"],
+    ["AK2","Question 14"],
+]
+
+exports.WORKSHEET = {
+    COLUMN: [
+        {header: 'Inisial Nama', key: 'initialName', width: 13},
+        {header: 'Umur', key: 'age', width: 8},
+        {header: 'Umur Kandungan', key: 'gestationalAge', width: 15},
+        {header: 'Pendidikan', key: 'education', width: 10},
+        {header: 'Tingkat Pendapatan', key: 'salaryRange', width: 16},
+        {header: 'Total Pre-test', key: 'pretest', width: 12},
+        {header: 'Total Post-test', key: 'posttest', width: 12},
+    ]
+}
