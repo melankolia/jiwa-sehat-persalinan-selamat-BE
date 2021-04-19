@@ -8,7 +8,7 @@ const Screening = require("./Screening");
 const Pretest = require("./Pre-test");
 const Posttest = require("./Post-test");
 const Exports = require("./Exports");
-const Scheduler = require("./Scheduler");
+const UploadFile = require("./UploadFile");
 
 Router.use("/responden", Responden);
 Router.use("/login", Users);
@@ -16,6 +16,6 @@ Router.use("/screening", Screening);
 Router.use("/pretest", Pretest);
 Router.use("/posttest", Posttest);
 Router.use("/export", Exports);
-Router.use("/scheduler", Scheduler);
+Router.use("/upload-file", UploadFile);
 
 module.exports = Router;

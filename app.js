@@ -3,6 +3,7 @@ const cors = require('cors');
 const logger = require("morgan");
 const helmet = require('helmet');
 const cron = require('node-cron');
+
 require("dotenv").config();
 
 // Init Router & App
@@ -28,17 +29,11 @@ app.use('/', Router);
 // Init Server
 app.listen(process.env.SERVER_PORT, () => console.log(`Running on Port ${process.env.SERVER_PORT}`));
 
-// Init Cron Job
 
-cron.schedule('58 0 * * *', () => {
-    console.log('Running a job at 01:00 AM at ASIA/JAKARTA timezone');
-  }, {
-    scheduled: true,
-    timezone: "Asia/Jakarta"
-  });
-
-cron.schedule('0 1 * * *', () => {
-    console.log('Running a job at 01:00 AM at ASIA/JAKARTA timezone');
+// Init Cron Job Bakal Back-Up ke cloud storage jam 11 Malam
+const ControllerUploadFile = require("./src/Controllers/UploadFile");
+cron.schedule('0 23 * * *', () => {
+      ControllerUploadFile.uploadFileToFirebase(null, null, null, "cron")
   }, {
     scheduled: true,
     timezone: "Asia/Jakarta"

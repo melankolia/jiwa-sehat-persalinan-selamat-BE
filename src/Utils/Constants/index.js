@@ -1,5 +1,8 @@
 exports.INVALID_CREDENTIAL = "Username atau Password Salah";
 exports.DATA_NOT_FOUND = "Data tidak ditemukan";
+exports.BACKUP_FILE_BERHASIL = "Berhasil Mem-backup File";
+exports.BACKUP_FILE_GAGAL = "Gagal Mem-backup File";
+
 
 exports.QUESTION_SURVEY = [
     "Kekhawatiran, mengantisipasi yang terburuk, antisipasi takut, cepat marah.",
