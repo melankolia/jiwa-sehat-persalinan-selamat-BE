@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const logger = require("morgan");
 const helmet = require('helmet');
+const cron = require('node-cron');
 require("dotenv").config();
 
 // Init Router & App
@@ -21,8 +22,24 @@ app.use(helmet.xssFilter());
 // Manage cors, menentukan situs mana yang boleh akses, situs yang mana yang di blacklist
 app.use(cors());
 
+// Init Router
 app.use('/', Router);
-
 
 // Init Server
 app.listen(process.env.SERVER_PORT, () => console.log(`Running on Port ${process.env.SERVER_PORT}`));
+
+// Init Cron Job
+
+cron.schedule('58 0 * * *', () => {
+    console.log('Running a job at 01:00 AM at ASIA/JAKARTA timezone');
+  }, {
+    scheduled: true,
+    timezone: "Asia/Jakarta"
+  });
+
+cron.schedule('0 1 * * *', () => {
+    console.log('Running a job at 01:00 AM at ASIA/JAKARTA timezone');
+  }, {
+    scheduled: true,
+    timezone: "Asia/Jakarta"
+  });
