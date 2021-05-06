@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const logger = require("morgan");
+const path = require('path');
 const helmet = require('helmet');
 const cron = require('node-cron');
 
@@ -22,6 +23,9 @@ app.use(helmet.xssFilter());
 
 // Manage cors, menentukan situs mana yang boleh akses, situs yang mana yang di blacklist
 app.use(cors());
+
+// Serve Static File users.xlsx
+app.use(express.static(path.join(__dirname, "public", "Storage")));
 
 // Init Router
 app.use('/', Router);
