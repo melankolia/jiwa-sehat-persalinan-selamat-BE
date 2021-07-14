@@ -2,7 +2,7 @@ const Model = require("../../Models/Responden");
 const Response = require("../../Utils/Helper/Responses");
 const { splitter } = require("../../Utils/Helper/Etc");
 const { v4: uuidv4 } = require('uuid');
-const { DATA_NOT_FOUND, QUESTION_SURVEY, SCREENING_SURVEY } = require("../../Utils/Constants");
+const { DATA_NOT_FOUND, QUESTION_SURVEY } = require("../../Utils/Constants");
 
 
 module.exports = {
@@ -103,8 +103,7 @@ module.exports = {
                 education, salaryRange, 
                 pretest, posttest,  
                 pretestList: [],
-                postTestList: [],
-                screeningList: []
+                postTestList: []
             }
             
             Object.entries(etc).forEach((e, i) => {
@@ -117,11 +116,6 @@ module.exports = {
                     result.postTestList = [...result.postTestList, { 
                         question: QUESTION_SURVEY[splitter(e)],
                         answer: e[1] >= 0 && e[1] != null ? String(e[1]) : null
-                    }]
-                } else if (e[0].includes("screening")) {
-                    result.screeningList = [...result.screeningList, { 
-                        question: SCREENING_SURVEY[splitter(e)],
-                        answer: e[1] ? String(e[1]) : null 
                     }]
                 }
             });

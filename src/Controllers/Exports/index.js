@@ -21,22 +21,12 @@ module.exports = {
                 cell.font = {bold: true};
                 cell.alignment = { vertical: 'middle', horizontal: 'center' };
                 worksheet.mergeCells(`${cell.address}:${cell.address[0]}2`)
-            });
-            
-            worksheet.getCell("H1").value = "Screening";
+            })
+
+            worksheet.getCell("H1").value = "Pretest";
             worksheet.getCell("H1").font = {bold: true};
             worksheet.getCell("H1").alignment = { vertical: 'middle', horizontal: 'center' };
-            worksheet.mergeCells("H1:I1");
-    
-            SCREENING_QUESTION.forEach(e => {
-                worksheet.getCell(e[0]).value = e[1]
-                worksheet.getCell(e[0]).font = {bold: true}
-                worksheet.getCell(e[0]).alignment = { vertical: 'middle', horizontal: 'center' };
-            })
-            worksheet.getCell("J1").value = "Pretest";
-            worksheet.getCell("J1").font = {bold: true};
-            worksheet.getCell("J1").alignment = { vertical: 'middle', horizontal: 'center' };
-            worksheet.mergeCells("J1:W1");
+            worksheet.mergeCells("H1:U1");
     
             PRETEST_QUESTION.forEach(e => {
                 worksheet.getCell(e[0]).value = e[1]
@@ -44,10 +34,10 @@ module.exports = {
                 worksheet.getCell(e[0]).alignment = { vertical: 'middle', horizontal: 'center' };
             })
     
-            worksheet.getCell("X1").value = "Posttest";
-            worksheet.getCell("X1").font = {bold: true};
-            worksheet.getCell("X1").alignment = { vertical: 'middle', horizontal: 'center' };
-            worksheet.mergeCells("X1:AK1");
+            worksheet.getCell("V1").value = "Posttest";
+            worksheet.getCell("V1").font = {bold: true};
+            worksheet.getCell("V1").alignment = { vertical: 'middle', horizontal: 'center' };
+            worksheet.mergeCells("V1:AI1");
     
             POSTTEST_QUESTION.forEach(e => {
                 worksheet.getCell(e[0]).value = e[1]

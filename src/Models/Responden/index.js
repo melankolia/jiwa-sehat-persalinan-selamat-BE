@@ -9,8 +9,6 @@ module.exports = {
                             salaryRange,
                             pretest,
                             posttest, 
-                            screening.question1 AS screening_question1,
-                            screening.question2 AS screening_question2,
                             pretest.question1 AS pretest_question1,
                             pretest.question2 AS pretest_question2,
                             pretest.question3 AS pretest_question3,
@@ -41,7 +39,6 @@ module.exports = {
                             posttest.question14 AS posttest_question14
                     FROM responden
                     LEFT JOIN pretest on responden.id_responden = pretest.id_responden 
-                    LEFT JOIN screening on responden.id_responden = screening.id_responden 
                     LEFT JOIN posttest on responden.id_responden = posttest.id_responden`;
         return new Promise((resolve, reject) => {
             Database.query(sql, (err, response) => {
@@ -140,8 +137,6 @@ module.exports = {
                             pretest.question12 AS pretest_question12,
                             pretest.question13 AS pretest_question13,
                             pretest.question14 AS pretest_question14,
-                            screening.question1 AS screening_question1,
-                            screening.question2 AS screening_question2,
                             posttest.question1 AS posttest_question1,
                             posttest.question2 AS posttest_question2,
                             posttest.question3 AS posttest_question3,
@@ -158,7 +153,6 @@ module.exports = {
                             posttest.question14 AS posttest_question14
                     FROM responden
                     LEFT JOIN pretest on responden.id_responden = pretest.id_responden 
-                    LEFT JOIN screening on responden.id_responden = screening.id_responden 
                     LEFT JOIN posttest on responden.id_responden = posttest.id_responden
                     WHERE responden.secureId='${payload}'`;
 

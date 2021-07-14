@@ -26,43 +26,40 @@ exports.SCREENING_SURVEY = [
     "Perubahan-perubahan apa saja yang terjadi pada fisik Ibu selama hamil ?"
 ]
 
-exports.SCREENING_QUESTION = [
-    ["H2", "Question 1"],
-    ["I2", "Question 2"]
-]
 
 exports.PRETEST_QUESTION = [
-    ["J2", "Question 1"],
-    ["K2", "Question 2"],
-    ["L2", "Question 3"],
-    ["M2", "Question 4"],
-    ["N2", "Question 5"],
-    ["O2", "Question 6"],
-    ["P2", "Question 7"],
-    ["Q2", "Question 8"],
-    ["R2", "Question 9"],
-    ["S2", "Question 10"],
-    ["T2", "Question 11"],
-    ["U2", "Question 12"],
-    ["V2", "Question 13"],
-    ["W2","Question 14"],
+    ["H2", "Question 1"],
+    ["I2", "Question 2"],
+    ["J2", "Question 3"],
+    ["K2", "Question 4"],
+    ["L2", "Question 5"],
+    ["M2", "Question 6"],
+    ["N2", "Question 7"],
+    ["O2", "Question 8"],
+    ["P2", "Question 9"],
+    ["Q2", "Question 10"],
+    ["R2", "Question 11"],
+    ["S2", "Question 12"],
+    ["T2", "Question 13"],
+    ["U2", "Question 14"],
+
 ]
 
 exports.POSTTEST_QUESTION = [
-    ["X2", "Question 1"],
-    ["Y2", "Question 2"],
-    ["Z2", "Question 3"],
-    ["AA2", "Question 4"],
-    ["AB2", "Question 5"],
-    ["AC2", "Question 6"],
-    ["AD2", "Question 7"],
-    ["AE2", "Question 8"],
-    ["AF2", "Question 9"],
-    ["AG2", "Question 10"],
-    ["AH2", "Question 11"],
-    ["AI2", "Question 12"],
-    ["AJ2", "Question 13"],
-    ["AK2","Question 14"],
+    ["V2", "Question 2"],
+    ["W2","Question 2"],
+    ["X2", "Question 3"],
+    ["Y2", "Question 4"],
+    ["Z2", "Question 5"],
+    ["AA2", "Question 6"],
+    ["AB2", "Question 7"],
+    ["AC2", "Question 8"],
+    ["AD2", "Question 9"],
+    ["AE2", "Question 10"],
+    ["AF2", "Question 11"],
+    ["AG2", "Question 12"],
+    ["AH2", "Question 13"],
+    ["AI2", "Question 14"],
 ]
 
 exports.WORKSHEET = {
