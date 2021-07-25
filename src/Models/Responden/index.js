@@ -96,8 +96,6 @@ module.exports = {
         let sql = `UPDATE responden SET ${type} = ? WHERE id_responden = ?`;
         return new Promise((resolve, reject) => {
             Database.query(sql, [...payload], (err, response) => {
-                console.log(response)
-                console.log(err)
                 if (!err) resolve(response);
                 else reject(err);
             });

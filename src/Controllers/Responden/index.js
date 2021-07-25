@@ -87,8 +87,6 @@ module.exports = {
             const [Tempresult] = await Model.getDetail(payload)
             !Tempresult && Response.failed(res, DATA_NOT_FOUND, next);
 
-            console.log(Tempresult);
-
             const { id_responden, secureId, 
                     initialName, agreement, 
                     age, gestationalAge, 
